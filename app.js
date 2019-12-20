@@ -1,7 +1,8 @@
 'use strict';
 
-var SwaggerExpress = require('swagger-express-mw');
-var app = require('express')();
+const cors =  require('cors');
+const app = require('express')();
+const SwaggerExpress = require('swagger-express-mw');
 module.exports = app; // for testing
 
 var config = {
@@ -12,6 +13,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (err) { throw err; }
 
   // install middleware
+  app.use(cors());
   swaggerExpress.register(app);
 
   var port = process.env.PORT || 10010;

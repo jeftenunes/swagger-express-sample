@@ -1,4 +1,4 @@
-'use strict';
+const monitor = require('../helpers/monitor');
 
 module.exports = {
     getAll: getAll,
@@ -6,6 +6,7 @@ module.exports = {
 };
 
 function getAll (req, res) {
+    var start = monitor();
     res.json(200, [{
       todo_id: 100,
       description: 'Fazer as compras'
@@ -13,6 +14,8 @@ function getAll (req, res) {
       todo_id: 200,
       description: 'Fazer outra coisa qualquer'
     }]);
+
+    monitor(start, 'getAll');
 }
   
 function getById(req, res) {
