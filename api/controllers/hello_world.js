@@ -27,7 +27,8 @@ var util = require('util');
 
 module.exports = {
   hello: hello,
-  getAll: getAll
+  getAll: getAll,
+  getById: getById
 };
 
 /*
@@ -45,7 +46,7 @@ function hello(req, res) {
   res.json(hello);
 }
 
-function getAll(req, res) {
+function getAll (req, res) {
   res.json(200, [{
     todo_id: 100,
     description: 'Fazer as compras'
@@ -53,4 +54,11 @@ function getAll(req, res) {
     todo_id: 200,
     description: 'Fazer outra coisa qualquer'
   }]);
+}
+
+function getById(req, res) {
+  res.json(200, {
+    todo_id: req.swagger.params.id.value,
+    description: "Quelque chose"
+  });
 }

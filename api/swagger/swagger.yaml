@@ -31,6 +31,24 @@ paths:
             items: 
               $ref: "#/definitions/Todo"
       x-swagger-router-controller: hello_world
+  /{id}:
+    get:
+      description: Return todo by id
+      operationId: getById
+      produces: 
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: A todo's Id to get
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Todo response
+          schema: 
+            $ref: "#/definitions/Todo"
+      x-swagger-router-controller: hello_world
   /hello:
     # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
