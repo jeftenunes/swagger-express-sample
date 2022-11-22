@@ -16,7 +16,7 @@
     "should": "^7.1.0",
     "supertest": "^1.0.0",
     "swagger-editor": "^3.7.1",
-    "nodejs-dashboard": "^0.1.2"
+    "nodejs-dashboard": "^0.5.1"
   },
   "scripts": {
     "start": "node app.js",
